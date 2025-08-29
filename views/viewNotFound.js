@@ -1,8 +1,9 @@
 import html from "html-literal";
-import oops404 from "url:../assets/img/oops-404.jpg";
-export default () => html`
+import * as images from "../assets/img";
+
+export default (state) => html`
   <div id="oops404">
-    <img src="${oops404}" alt="View not found!" />
+    <img src="${images[state.image]}" alt="View not found!" />
     <div class="attribution">
       <a
         href="https://www.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_13315300.htm"
