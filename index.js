@@ -77,6 +77,21 @@ router.hooks({
   after: match => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
+    if (view === "pizza") {
+      document.getElementById('search').addEventListener('click', event => {
+        event.preventDefault();
+
+        const textElement = document.getElementById('searchText');
+        const filter = textElement.value;
+
+        const filteredPizzas = store.pizza.pizzas.filter(pizza => pizza.customer.toLowerCase().includes(filter.toLowerCase()));
+
+        console.dir(filteredPizzas);
+        store.search.pizzas = filteredPizzas;
+        router.navigate('/search');
+      });
+    }
+
     if (view === "order") {
       // Add an event handler for the submit button on the form
       document.querySelector("form").addEventListener("submit", event => {

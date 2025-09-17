@@ -1,9 +1,6 @@
 import html from "html-literal";
 
 export default state => html`
-  <div style="margin: 2em 40px">
-    <input type="text" name="searchText" id="searchText"><button id="search" style="margin-left: 10px">Search Customers</button>
-  </div>
   <table id="pizzas">
     <tr>
       <th>Crust</th>
