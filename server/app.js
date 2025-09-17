@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 // "Import" the Express module instead of http
 import express from "express";
+import pizzas from "./controllers/pizzas.js";
+
 // Initialize the Express application
 const app = express();
 
@@ -72,6 +74,8 @@ app.get("/weather/:city", (request, response) => {
     city
   });
 });
+
+app.use("/pizzas", pizzas);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 3000
